@@ -1,0 +1,96 @@
+﻿<Window x:Class="View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:View"
+        mc:Ignorable="d"
+        Title="Geometry figures" Background="#E6E6FA" Height="306.667" Width="376.667">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Background="#7FFF00"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Click="Button_Click" Margin="10,34,0,0" Height="33">
+            <TextBlock Foreground="White" Text="Add Figure" FontSize="18" FontWeight="Bold">
+                <TextBlock.Effect>                   
+                    <DropShadowEffect  ShadowDepth="0.5" BlurRadius="2" Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
+        </Button>
+
+        <Button Background="#F08080"   HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Click="Button_Click_1" Margin="10,79,0,0" Height="33">
+            <TextBlock Foreground="White" Text="Remove Figure" FontSize="18" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
+            </TextBlock.Effect>
+        </TextBlock>
+        </Button>
+
+        <DataGrid BorderBrush="White" Background="DarkGray" HorizontalAlignment="Left" Height="50" Name="figureDataGrid" Margin="10,213,0,0" VerticalAlignment="Top" Width="344" RowHeight="50" ColumnWidth="*" CanUserAddRows="False" SelectionChanged="FigureDataGrid_SelectionChanged">
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Header="Calculate Area" /> -->
+            <!--///>Binding="{Binding Width}"/>-->
+            <!--
+                <DataGridTextColumn Header="Calculate Area" /> -->
+            <!--///>Binding="{Binding CalculateArea}"/>-->
+            <!--
+            </DataGrid.Columns>-->
+        </DataGrid>
+        <Button  Background="#1E90FF"   HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Width="185" Click="Button_Click_2" Height="33">
+            <TextBlock Foreground="White" Text="Search Figure" FontSize="18" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
+            </TextBlock.Effect>
+        </TextBlock>
+        </Button>
+
+
+        <ListBox  Name="figureListBox" HorizontalAlignment="Left" Height="145" Margin="216,34,0,0" VerticalAlignment="Top" Width="135" SelectionChanged="FigureListBox_SelectionChanged">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding Name}" Grid.Column="0" Grid.Row="0" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>        
+       <Button  Background="#DC143C" HorizontalAlignment="Left" Margin="216,188,0,0" VerticalAlignment="Top" Width="135" Click="Button_Click_3">
+            <TextBlock Foreground="White" Text="Exit" FontSize="12" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
+            </TextBlock.Effect>
+        </TextBlock>
+        </Button>
+
+        <Button  Background="#DDA0DD"  Name="randomButton" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top" Width="185" Click="Button_Click_6">
+            <TextBlock Foreground="White" Text="*Add random figure*" FontSize="12" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
+            </TextBlock.Effect>
+        </TextBlock>
+        </Button>
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem Header="File" Click="MenuItem_Click_1">
+                <MenuItem Name="Save" Header="Save file" Click="MenuItem_Click_2" ></MenuItem>
+                <MenuItem Name="Open" Header="Open file" Click="Open_Click" ></MenuItem>
+                <Separator />
+                <MenuItem Name="Exit" Header="Exit" Click="Exit_Click" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit" >
+                <MenuItem Name="AddFigure" Header="Add figure" Click="AddFigure_Click" ></MenuItem>
+                <MenuItem Name="RemoveFigure" Header="Remove figure" Click="RemoveFigure_Click" ></MenuItem>
+                <MenuItem Name="SearchFigure" Header="Search figure" Click="SearchFigure_Click" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="About" >
+                <MenuItem Name="License" Header="License" Click="License_Click" ></MenuItem>
+                <MenuItem Name="Contacts" Header="Contacts" Click="Contacts_Click" ></MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>

@@ -1,0 +1,66 @@
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\bin\Debug\View.exe.config
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\bin\Debug\View.exe
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\bin\Debug\View.pdb
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\View.csprojAssemblyReference.cache
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\MainWindow.g.cs
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\App.g.cs
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\View_MarkupCompile.cache
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\View_MarkupCompile.lref
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\MainWindow.baml
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\View.g.resources
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\View.exe
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\View.pdb
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\bin\Debug\Geometrical figures.dll
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\bin\Debug\Geometrical figures.pdb
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\NewFigure.g.cs
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\NewFigure.baml
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\SearchWindow.g.cs
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\View\obj\Debug\SearchWindow.baml
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\bin\Debug\View.exe.config
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\bin\Debug\View.exe
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\bin\Debug\View.pdb
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\bin\Debug\Geometrical figures.dll
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\bin\Debug\Geometrical figures.pdb
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\View.csprojAssemblyReference.cache
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\MainWindow.g.cs
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\NewFigure.g.cs
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\SearchWindow.g.cs
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\App.g.cs
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\View_MarkupCompile.cache
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\View_MarkupCompile.lref
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\MainWindow.baml
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\NewFigure.baml
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\SearchWindow.baml
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\View.g.resources
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\View.exe
+C:\Users\Петров Артем\Desktop\55555\Geometrical figures\View\obj\Debug\View.pdb
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\View.csprojAssemblyReference.cache
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\MainWindow.g.cs
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\NewFigure.g.cs
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\SearchWindow.g.cs
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\App.g.cs
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\View_MarkupCompile.cache
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\View_MarkupCompile.lref
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\View.exe
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\View.pdb
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\bin\Debug\View.exe.config
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\bin\Debug\View.exe
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\bin\Debug\View.pdb
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\bin\Debug\Geometrical figures.dll
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\bin\Debug\Geometrical figures.pdb
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\MainWindow.baml
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\NewFigure.baml
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\SearchWindow.baml
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\View.g.resources
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\View.Properties.Resources.resources
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\View.csproj.GenerateResource.cache
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+\\10.249.0.2\5am7r\4 семестр\Lab4\ЛБ 4 - Петров\Geometrical figures\View\obj\Debug\View.csproj.CopyComplete

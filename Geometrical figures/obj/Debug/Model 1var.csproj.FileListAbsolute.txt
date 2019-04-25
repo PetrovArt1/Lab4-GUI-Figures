@@ -1,0 +1,29 @@
+C:\Users\Петров Артем\source\repos\Geometrical figures\Geometrical figures\bin\Debug\Geometrical figures.dll
+C:\Users\Петров Артем\source\repos\Geometrical figures\Geometrical figures\bin\Debug\Geometrical figures.pdb
+C:\Users\Петров Артем\source\repos\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csproj.CoreCompileInputs.cache
+C:\Users\Петров Артем\source\repos\Geometrical figures\Geometrical figures\obj\Debug\Geometrical figures.dll
+C:\Users\Петров Артем\source\repos\Geometrical figures\Geometrical figures\obj\Debug\Geometrical figures.pdb
+C:\Users\Петров Артем\source\repos\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csprojAssemblyReference.cache
+\\10.249.0.2\5am7r\4 семестр\Lab3\ЛБ 3 - Петров\Geometrical figures\Geometrical figures\bin\Debug\Geometrical figures.dll
+\\10.249.0.2\5am7r\4 семестр\Lab3\ЛБ 3 - Петров\Geometrical figures\Geometrical figures\bin\Debug\Geometrical figures.pdb
+\\10.249.0.2\5am7r\4 семестр\Lab3\ЛБ 3 - Петров\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csprojAssemblyReference.cache
+\\10.249.0.2\5am7r\4 семестр\Lab3\ЛБ 3 - Петров\Geometrical figures\Geometrical figures\obj\Debug\Geometrical_figures.Properties.Resources.resources
+\\10.249.0.2\5am7r\4 семестр\Lab3\ЛБ 3 - Петров\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csproj.GenerateResource.cache
+\\10.249.0.2\5am7r\4 семестр\Lab3\ЛБ 3 - Петров\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csproj.CoreCompileInputs.cache
+\\10.249.0.2\5am7r\4 семестр\Lab3\ЛБ 3 - Петров\Geometrical figures\Geometrical figures\obj\Debug\Geometrical figures.dll
+\\10.249.0.2\5am7r\4 семестр\Lab3\ЛБ 3 - Петров\Geometrical figures\Geometrical figures\obj\Debug\Geometrical figures.pdb
+C:\Users\Петров Артем\Desktop\Geometrical figures\Geometrical figures\bin\Debug\Geometrical figures.dll
+C:\Users\Петров Артем\Desktop\Geometrical figures\Geometrical figures\bin\Debug\Geometrical figures.pdb
+C:\Users\Петров Артем\Desktop\Geometrical figures\Geometrical figures\obj\Debug\Geometrical_figures.Properties.Resources.resources
+C:\Users\Петров Артем\Desktop\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csproj.GenerateResource.cache
+C:\Users\Петров Артем\Desktop\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csproj.CoreCompileInputs.cache
+C:\Users\Петров Артем\Desktop\Geometrical figures\Geometrical figures\obj\Debug\Geometrical figures.dll
+C:\Users\Петров Артем\Desktop\Geometrical figures\Geometrical figures\obj\Debug\Geometrical figures.pdb
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\bin\Debug\Geometrical figures.dll
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\bin\Debug\Geometrical figures.pdb
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csprojAssemblyReference.cache
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\obj\Debug\Geometrical_figures.Properties.Resources.resources
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csproj.GenerateResource.cache
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csproj.CoreCompileInputs.cache
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\obj\Debug\Geometrical figures.dll
+C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\obj\Debug\Geometrical figures.pdb
