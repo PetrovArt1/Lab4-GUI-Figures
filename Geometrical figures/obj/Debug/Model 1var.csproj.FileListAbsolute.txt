@@ -27,3 +27,11 @@ C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometric
 C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\obj\Debug\Model 1var.csproj.CoreCompileInputs.cache
 C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\obj\Debug\Geometrical figures.dll
 C:\Users\Петров Артем\Desktop\С#\4лб\Geometrical figures\Geometrical figures\obj\Debug\Geometrical figures.pdb
+C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\Geometrical figures\bin\Debug\Geometrical figures.dll
+C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\Geometrical figures\bin\Debug\Geometrical figures.pdb
+C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\Geometrical figures\obj\Debug\Model 1var.csprojAssemblyReference.cache
+C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\Geometrical figures\obj\Debug\Geometrical_figures.Properties.Resources.resources
+C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\Geometrical figures\obj\Debug\Model 1var.csproj.GenerateResource.cache
+C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\Geometrical figures\obj\Debug\Model 1var.csproj.CoreCompileInputs.cache
+C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\Geometrical figures\obj\Debug\Geometrical figures.dll
+C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\Geometrical figures\obj\Debug\Geometrical figures.pdb

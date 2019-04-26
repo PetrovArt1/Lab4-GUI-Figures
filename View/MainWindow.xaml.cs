@@ -1,8 +1,12 @@
 ﻿#define rootAccess
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using Geometrical_figures;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Collections.Specialized;
 
 namespace View
 {
@@ -11,18 +15,23 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
-		//TODO:!!! static
-        public static ObservableCollection<FigureBase> figureList = new ObservableCollection<FigureBase>();
-        
+        //TODO:!!! static        
+        public ObservableCollection<FigureBase> figureList = new ObservableCollection<FigureBase>();
+
         System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
         System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
+
+        private void Users_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            FigureListUpdate();          
+        }
         /// <summary>
         /// Инициализация главного окна
         /// </summary>
         public MainWindow()
-        {
-            InitializeComponent();        
-            
+        {            
+            InitializeComponent();
+            figureList.CollectionChanged += Users_CollectionChanged;
 #if rootAccess
             randomButton.Visibility = Visibility.Visible;
 #else
@@ -36,7 +45,7 @@ namespace View
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var newFigure = new NewFigure
+            var newFigure = new NewFigure(figureList)
             {
                 Owner = this
             };
@@ -78,16 +87,8 @@ namespace View
             figureDataGrid.ItemsSource = null;
             figureDataGrid.Items.Clear();
             figureDataGrid.ItemsSource = figureListBox.SelectedItems;
-        }
-        /// <summary>
-        /// Обновление элемента LIstBox
-        /// </summary>
-		/// //TODO: Нарушение инкапсуляции
-        public void UpdateListBox()
-        {
-            figureListBox.ItemsSource = figureList;
-            figureListBox.Items.Refresh();
-        }
+        }     
+        
         private void FigureDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -103,7 +104,8 @@ namespace View
         
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-#if rootAcces            
+#if rootAcces           
+#else
             FigureBase figure;
             Random rnd = new Random();
 
@@ -121,9 +123,7 @@ namespace View
                     figure = new Circle(rnd.Next(1, 99));
                     figureList.Add(figure);
                     break;
-            }
-            UpdateListBox();
-#else
+            }          
 #endif
         }       
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -171,10 +171,12 @@ namespace View
             if (string.IsNullOrWhiteSpace(openFile.FileName) == false)
             {               
                 using (var file = System.IO.File.OpenRead(openFile.FileName))
-                {    
+                {
                     figureList = (ObservableCollection<FigureBase>)reader.Deserialize(file);
+                    FigureListUpdate();
+                    //figureListBox.Items.Add((ObservableCollection<FigureBase>)reader.Deserialize(file));
                     file.Close();
-                    UpdateListBox();
+                    
                     MessageBox.Show($"Файл {openFile.FileName} успешно сохранен.");
                 }
             }
@@ -195,6 +197,10 @@ namespace View
                     MessageBox.Show($"Файл {saveFile.FileName} успешно сохранен.");
                 }
             }
-        }             
+        } 
+        private void FigureListUpdate()
+        {
+            figureListBox.ItemsSource = figureList;
+        }
     }
 }

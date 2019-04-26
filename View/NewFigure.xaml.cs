@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Geometrical_figures;
 using Rectangle = Geometrical_figures.Rectangle;
+using System.Collections.Specialized;
 
 namespace View
 {
@@ -12,15 +14,30 @@ namespace View
     /// </summary>
     public partial class NewFigure : Window
     {
+        private ObservableCollection<FigureBase> figureList;  
+        
+
         public NewFigure()
+        {
+            InitializeComponent();
+            //WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            //RectangleCheck.IsChecked = true;
+            //TriangleBaseTextBox.Visibility = Visibility.Hidden;
+            //TriangleHeightTextBox.Visibility = Visibility.Hidden;
+            //CircleRadiusTextBox.Visibility = Visibility.Hidden;
+        }
+
+        public NewFigure(ObservableCollection<FigureBase> figureList)
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             RectangleCheck.IsChecked = true;
             TriangleBaseTextBox.Visibility = Visibility.Hidden;
             TriangleHeightTextBox.Visibility = Visibility.Hidden;
-            CircleRadiusTextBox.Visibility = Visibility.Hidden;
+            CircleRadiusTextBox.Visibility = Visibility.Hidden;            
+            this.figureList = figureList;              
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -79,44 +96,34 @@ namespace View
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MainWindow main = Owner as MainWindow;
-            FigureBase figure;
+            FigureBase figure=new Rectangle();
             try
             {
-
                 if (RectangleCheck.IsChecked == true)
                 {
                     figure = new Rectangle(
                    Convert.ToDouble(RectangleWidthTextBox.Text),
                    Convert.ToDouble(RectangleLengthTextBox.Text)
-                   );
-                    MainWindow.figureList.Add(figure);
-                    labelCreatedFigure.Content = LabelContent(figure.GetType().Name);
-                    RectangleLengthTextBox.Text = null;
-                    RectangleWidthTextBox.Text = null;
+                   );                                      
+                    labelCreatedFigure.Content = LabelContent(figure.GetType().Name);                    
                 }
                 else if (CircleCheck.IsChecked == true)
                 {
                     figure = new Circle(
                         Convert.ToDouble(CircleRadiusTextBox.Text)
-                        );
-                    MainWindow.figureList.Add(figure);
-                    labelCreatedFigure.Content = LabelContent(figure.GetType().Name);
-                    CircleRadiusTextBox.Text = null;
+                        );                   
+                    labelCreatedFigure.Content = LabelContent(figure.GetType().Name);                    
                 }
                 else if (TriangleCheck.IsChecked == true)
                 {
                     figure = new Triangle(
                          Convert.ToDouble(TriangleBaseTextBox.Text),
                          Convert.ToDouble(TriangleHeightTextBox.Text)
-                         );
-                    MainWindow.figureList.Add(figure);
-                    labelCreatedFigure.Content = LabelContent(figure.GetType().Name);
-                    TriangleBaseTextBox.Text = null;
-                    TriangleHeightTextBox.Text = null;
+                         );                                      
+                    labelCreatedFigure.Content = LabelContent(figure.GetType().Name);                    
                 }
-                main.UpdateListBox();
-                labelCreatedFigure.Foreground = Brushes.Green;
+                figureList.Add(figure);                
+                labelCreatedFigure.Foreground = Brushes.Green;               
             }
             catch (ArgumentException ex)
             {
@@ -135,6 +142,6 @@ namespace View
         private object LabelContent(string name)
         {
             return $"Figure {name} was created";
-        }        
+        }       
     }
 }

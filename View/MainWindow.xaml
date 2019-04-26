@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Button Background="#7FFF00"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Click="Button_Click" Margin="10,34,0,0" Height="33">
             <TextBlock Foreground="White" Text="Add Figure" FontSize="18" FontWeight="Bold">
-                <TextBlock.Effect>                   
+                <TextBlock.Effect>
                     <DropShadowEffect  ShadowDepth="0.5" BlurRadius="2" Color="Black" />
                 </TextBlock.Effect>
             </TextBlock>
@@ -21,13 +21,13 @@
 
         <Button Background="#F08080"   HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Click="Button_Click_1" Margin="10,79,0,0" Height="33">
             <TextBlock Foreground="White" Text="Remove Figure" FontSize="18" FontWeight="Bold">
-            <TextBlock.Effect>
-                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
-            </TextBlock.Effect>
-        </TextBlock>
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
         </Button>
 
-        <DataGrid BorderBrush="White" Background="DarkGray" HorizontalAlignment="Left" Height="50" Name="figureDataGrid" Margin="10,213,0,0" VerticalAlignment="Top" Width="344" RowHeight="50" ColumnWidth="*" CanUserAddRows="False" SelectionChanged="FigureDataGrid_SelectionChanged">
+        <DataGrid BorderBrush="White" Background="DarkGray" HorizontalAlignment="Left" Name="figureDataGrid" Margin="10,213,0,13" Width="344" RowHeight="50" ColumnWidth="*" CanUserAddRows="False" SelectionChanged="FigureDataGrid_SelectionChanged">
             <!--<DataGrid.Columns>
                 <DataGridTextColumn Header="Calculate Area" /> -->
             <!--///>Binding="{Binding Width}"/>-->
@@ -39,14 +39,14 @@
         </DataGrid>
         <Button  Background="#1E90FF"   HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Width="185" Click="Button_Click_2" Height="33">
             <TextBlock Foreground="White" Text="Search Figure" FontSize="18" FontWeight="Bold">
-            <TextBlock.Effect>
-                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
-            </TextBlock.Effect>
-        </TextBlock>
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
         </Button>
 
 
-        <ListBox  Name="figureListBox" HorizontalAlignment="Left" Height="145" Margin="216,34,0,0" VerticalAlignment="Top" Width="135" SelectionChanged="FigureListBox_SelectionChanged">
+        <ListBox  Name="figureListBox" HorizontalAlignment="Left" Height="145" Margin="216,34,0,0" VerticalAlignment="Top" Width="135" SelectionChanged="FigureListBox_SelectionChanged" ItemsSource="{Binding }">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center"/>
@@ -59,21 +59,21 @@
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>        
-       <Button  Background="#DC143C" HorizontalAlignment="Left" Margin="216,188,0,0" VerticalAlignment="Top" Width="135" Click="Button_Click_3">
+        </ListBox>
+        <Button  Background="#DC143C" HorizontalAlignment="Left" Margin="216,188,0,0" VerticalAlignment="Top" Width="135" Click="Button_Click_3">
             <TextBlock Foreground="White" Text="Exit" FontSize="12" FontWeight="Bold">
-            <TextBlock.Effect>
-                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
-            </TextBlock.Effect>
-        </TextBlock>
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
         </Button>
 
         <Button  Background="#DDA0DD"  Name="randomButton" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top" Width="185" Click="Button_Click_6">
             <TextBlock Foreground="White" Text="*Add random figure*" FontSize="12" FontWeight="Bold">
-            <TextBlock.Effect>
-                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
-            </TextBlock.Effect>
-        </TextBlock>
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0.5" BlurRadius="2" Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
         </Button>
         <Menu Height="25" VerticalAlignment="Top">
             <MenuItem Header="File">

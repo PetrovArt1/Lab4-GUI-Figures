@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Xml.Serialization;
 /// <summary>
@@ -33,7 +34,11 @@ namespace Geometrical_figures
         /// <summary>
         /// Вычисленная площадь фигуры
         /// </summary>
-        public abstract double CalculateArea { get; }       
-       
+        public abstract double CalculateArea { get; }
+
+        public static implicit operator ObservableCollection<object>(FigureBase v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

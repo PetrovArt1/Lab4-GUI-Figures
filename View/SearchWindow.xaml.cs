@@ -61,6 +61,7 @@ namespace View
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mw2 = new MainWindow();
             int countOfFoundFigures = 0;
             searchListBox.ItemsSource = null;
             searchList = new ObservableCollection<FigureBase>();
@@ -68,7 +69,7 @@ namespace View
             MainWindow main = Owner as MainWindow;
             if (allFigure.IsChecked == true)
             {
-                foreach (FigureBase elements in MainWindow.figureList)
+                foreach (FigureBase elements in mw2.figureList)
                 {
                     if (elements.GetType().Name == figureComboBox.Text)
                     {
@@ -79,7 +80,7 @@ namespace View
             }
             else if (allFigureWithParam.IsChecked == true)
             {
-                foreach (FigureBase elements in MainWindow.figureList)
+                foreach (FigureBase elements in mw2.figureList)
                 {
                     trueIndicator = false;
                     PropertyInfo[] propertys = elements.GetType().GetProperties();
@@ -100,7 +101,7 @@ namespace View
             else if (figuresWithParam.IsChecked == true)
             {
 
-                foreach (FigureBase elements in MainWindow.figureList)
+                foreach (FigureBase elements in mw2.figureList)
                 {
                     trueIndicator = false;
                     if (elements.GetType().Name == figureTypeComboBox.Text)
