@@ -119,20 +119,7 @@ namespace View
                 }
             }
         }
-        private void Button_Click_5(object sender, RoutedEventArgs e)
-        {
-            openFile.ShowDialog();
-            if (openFile.FileName != "")
-            {
-                var reader = new System.Xml.Serialization.XmlSerializer(
-					typeof(ObservableCollection<FigureBase>));
-				//TODO: using?
-				var file = new System.IO.StreamReader(openFile.FileName);
-                figureList = (ObservableCollection<FigureBase>)reader.Deserialize(file);
-                UpdateListBox();
-                MessageBox.Show($"Файл {openFile.FileName} успешно открыт.");
-            }
-        }
+        
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
 			//TODO: убрать отладочный
@@ -156,18 +143,7 @@ namespace View
             }
             UpdateListBox();
         }
-        private void Open_Click(object sender, RoutedEventArgs e)
-        {
-            openFile.ShowDialog();
-            if (openFile.FileName != "")
-            {
-                var reader = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
-                var file = new System.IO.StreamReader(openFile.FileName);
-                figureList = (ObservableCollection<FigureBase>)reader.Deserialize(file);
-                UpdateListBox();
-                MessageBox.Show($"Файл {openFile.FileName} успешно открыт.");
-            }
-        }
+       
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -203,14 +179,28 @@ namespace View
         {
             MessageBox.Show("Автор: Петров А.А. \nE-mail: artem.petrov11@mail.ru");
         }
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void OpenMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            openFile.ShowDialog();
+            if (openFile.FileName != "")
+            {
+                var reader = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
+                using (var file = System.IO.File.OpenRead(openFile.FileName))
+                {    
+                    figureList = (ObservableCollection<FigureBase>)reader.Deserialize(file);
+                    file.Close();
+                    UpdateListBox();
+                    MessageBox.Show($"Файл {openFile.FileName} успешно сохранено.");
+                }
+            }
+        }
+        private void SaveMenuitemClick(object sender, RoutedEventArgs e)
         {
 			//TODO: Дублирование
             saveFile.ShowDialog();
             if (saveFile.FileName != "")
             {
-                var writer = new System.Xml.Serialization.XmlSerializer(
-					typeof(ObservableCollection<FigureBase>));
+                var writer = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
                 using (var file = System.IO.File.Create(saveFile.FileName))
                 {
                     writer.Serialize(file, figureList);
