@@ -1,10 +1,8 @@
 ﻿#define rootAccess
-using System;
 using System.Windows;
 using System.Windows.Controls;
 using Geometrical_figures;
 using System.Collections.ObjectModel;
-using Rectangle = Geometrical_figures.Rectangle;
 
 namespace View
 {
@@ -15,18 +13,16 @@ namespace View
     {
 		//TODO:!!! static
         public static ObservableCollection<FigureBase> figureList = new ObservableCollection<FigureBase>();
-		//TODO: Убрать
-		Microsoft.Win32.OpenFileDialog openFile = new Microsoft.Win32.OpenFileDialog();
-        Microsoft.Win32.SaveFileDialog saveFile = new Microsoft.Win32.SaveFileDialog();
+        
+        System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
+        System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
         /// <summary>
         /// Инициализация главного окна
         /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
-            openFile.Filter = "Text documents (*.lol)|*.lol|All files (*.*)|*.*";
-            saveFile.Filter = "Text documents (*.lol)|*.lol|All files (*.*)|*.*";
-
+            InitializeComponent();        
+            
 #if rootAccess
             randomButton.Visibility = Visibility.Visible;
 #else
@@ -103,26 +99,11 @@ namespace View
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            saveFile.ShowDialog();
-            if (saveFile.FileName != "")
-            {
-                var writer = new System.Xml.Serialization.XmlSerializer(
-					typeof(ObservableCollection<FigureBase>));
-                using (var file = System.IO.File.Create(saveFile.FileName))
-                {
-                    writer.Serialize(file, figureList);
-                    file.Close();
-                    MessageBox.Show($"Файл {saveFile.FileName} успешно сохранено.");
-                }
-            }
-        }
+        }      
         
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-			//TODO: убрать отладочный
+#if rootAcces            
             FigureBase figure;
             Random rnd = new Random();
 
@@ -142,8 +123,9 @@ namespace View
                     break;
             }
             UpdateListBox();
-        }
-       
+#else
+#endif
+        }       
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -181,37 +163,38 @@ namespace View
         }
         private void OpenMenuItemClick(object sender, RoutedEventArgs e)
         {
-            openFile.ShowDialog();
-            if (openFile.FileName != "")
+            var openFile = new Microsoft.Win32.OpenFileDialog
             {
-                var reader = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
+                Filter = "Text documents (*.lol)|*.lol|All files (*.*)|*.*"
+            };
+            openFile.ShowDialog();
+            if (string.IsNullOrWhiteSpace(openFile.FileName) == false)
+            {               
                 using (var file = System.IO.File.OpenRead(openFile.FileName))
                 {    
                     figureList = (ObservableCollection<FigureBase>)reader.Deserialize(file);
                     file.Close();
                     UpdateListBox();
-                    MessageBox.Show($"Файл {openFile.FileName} успешно сохранено.");
+                    MessageBox.Show($"Файл {openFile.FileName} успешно сохранен.");
                 }
             }
         }
         private void SaveMenuitemClick(object sender, RoutedEventArgs e)
-        {
-			//TODO: Дублирование
-            saveFile.ShowDialog();
-            if (saveFile.FileName != "")
+        {           
+            var saveFile = new Microsoft.Win32.SaveFileDialog
             {
-                var writer = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
+                Filter = "Text documents (*.lol)|*.lol|All files (*.*)|*.*"
+            };
+            saveFile.ShowDialog();
+            if (string.IsNullOrWhiteSpace(saveFile.FileName) == false)
+            {                
                 using (var file = System.IO.File.Create(saveFile.FileName))
                 {
                     writer.Serialize(file, figureList);
                     file.Close();
-                    MessageBox.Show($"Файл {saveFile.FileName} успешно сохранено.");
+                    MessageBox.Show($"Файл {saveFile.FileName} успешно сохранен.");
                 }
             }
-        }
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
+        }             
     }
 }

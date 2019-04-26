@@ -76,7 +76,7 @@
         </TextBlock>
         </Button>
         <Menu Height="25" VerticalAlignment="Top">
-            <MenuItem Header="File" Click="MenuItem_Click_1">
+            <MenuItem Header="File">
                 <MenuItem Name="Save" Header="Save file" Click="SaveMenuitemClick" ></MenuItem>
                 <MenuItem Name="Open" Header="Open file" Click="OpenMenuItemClick" ></MenuItem>
                 <Separator />
