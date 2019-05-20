@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Geometrical_figures;
 using Rectangle = Geometrical_figures.Rectangle;
-using System.Collections.Specialized;
 
 namespace View
 {
@@ -77,6 +77,7 @@ namespace View
         }
         private void RectangleCheck_Checked(object sender, RoutedEventArgs e)
         {
+            dataGridWithParameters.Columns.Clear();
             HideAll();
             if (RectangleCheck.IsChecked == true)
             {
@@ -84,7 +85,11 @@ namespace View
                 RectangleWidthTextBox.Visibility = Visibility.Visible;
                 TriangleCheck.IsChecked = false;
                 CircleCheck.IsChecked = false;
-            }
+                PropertyInfo[] myPropertyInfo;
+                Type myType = typeof(Rectangle);
+                myPropertyInfo = myType.GetProperties();
+            }           
+
         }
         private void HideAll()
         {

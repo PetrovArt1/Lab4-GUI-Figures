@@ -4,6 +4,7 @@ using System.Windows.Media;
 using Geometrical_figures;
 using System.Collections.ObjectModel;
 using System.Reflection;
+using System.Linq;
 
 namespace View
 {
@@ -12,10 +13,13 @@ namespace View
     /// </summary>
     public partial class SearchWindow : Window
     {
-        public static ObservableCollection<FigureBase> searchList = new ObservableCollection<FigureBase>();
-        public SearchWindow()
+        private ObservableCollection<FigureBase> searchList = new ObservableCollection<FigureBase>();
+        private ObservableCollection<FigureBase> figureListFromMainForm = new ObservableCollection<FigureBase>();
+
+        public SearchWindow(ObservableCollection<FigureBase> figureList)
         {
             InitializeComponent();
+            figureListFromMainForm = figureList;
             allFigure.IsChecked = true;
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
@@ -60,16 +64,14 @@ namespace View
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mw2 = new MainWindow();
+        {          
+            searchList.Clear();
             int countOfFoundFigures = 0;
-            searchListBox.ItemsSource = null;
-            searchList = new ObservableCollection<FigureBase>();
-            var trueIndicator = false;
-            MainWindow main = Owner as MainWindow;
+            searchListBox.ItemsSource = null;            
+            var trueIndicator = false;          
             if (allFigure.IsChecked == true)
             {
-                foreach (FigureBase elements in mw2.figureList)
+                foreach (FigureBase elements in figureListFromMainForm.ToArray())
                 {
                     if (elements.GetType().Name == figureComboBox.Text)
                     {
@@ -80,7 +82,7 @@ namespace View
             }
             else if (allFigureWithParam.IsChecked == true)
             {
-                foreach (FigureBase elements in mw2.figureList)
+                foreach (FigureBase elements in figureListFromMainForm.ToArray())
                 {
                     trueIndicator = false;
                     PropertyInfo[] propertys = elements.GetType().GetProperties();
@@ -101,7 +103,7 @@ namespace View
             else if (figuresWithParam.IsChecked == true)
             {
 
-                foreach (FigureBase elements in mw2.figureList)
+                foreach (FigureBase elements in figureListFromMainForm.ToArray())
                 {
                     trueIndicator = false;
                     if (elements.GetType().Name == figureTypeComboBox.Text)

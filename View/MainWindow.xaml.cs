@@ -14,8 +14,7 @@ namespace View
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        //TODO:!!! static        
+    {           
         public ObservableCollection<FigureBase> figureList = new ObservableCollection<FigureBase>();
 
         System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
@@ -69,9 +68,9 @@ namespace View
         /// <param name="sender"></param>
         /// <param name="e"></param>
 		/// //TODO: Нарушение инкапсуляции
-        public void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var searchWindow = new SearchWindow
+            var searchWindow = new SearchWindow(figureList)
             {
                 Owner = this
             };
@@ -147,7 +146,7 @@ namespace View
         }
         private void SearchFigure_Click(object sender, RoutedEventArgs e)
         {
-            SearchWindow searchWindow = new SearchWindow
+            SearchWindow searchWindow = new SearchWindow(figureList)
             {
                 Owner = this
             };

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="New figure" Height="196.167" Width="274" Background="#E6E6FA">
+        Title="New figure" Height="196.167" Width="537.278" Background="#E6E6FA">
 
 
     <Grid>
@@ -146,6 +146,21 @@
         </TextBox>
         <Label Content="Add figure, please." Name="labelCreatedFigure" HorizontalAlignment="Center" Margin="13,84,17,0" VerticalAlignment="Top" Width="236" Height="27" FontSize="13"/>
 
+        <DataGrid Name="dataGridWithParameters" 
+                  HorizontalAlignment="Left"
+                  Height="59" 
+                  Margin="280,18,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="220"
+                  CanUserAddRows="False"
+                  ItemsSource="{Binding myPropertyInfo}" AutoGenerateColumns="True">          
+
+        </DataGrid>
+        
+
+
 
     </Grid>
+    
+    
 </Window>

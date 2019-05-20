@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="Geometry figures" Background="#E6E6FA" Height="306.667" Width="376.667">
+        Title="Geometry figures" Background="#E6E6FA" Height="345.667" Width="376.667">
     <Grid>
 
         <Grid.RowDefinitions>
