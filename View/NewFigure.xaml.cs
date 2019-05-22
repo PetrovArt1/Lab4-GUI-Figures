@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,27 +17,19 @@ namespace View
     public partial class NewFigure : Window
     {
         private ObservableCollection<FigureBase> figureList;  
-        
 
         public NewFigure()
-        {
-            InitializeComponent();
-            //WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            //RectangleCheck.IsChecked = true;
-            //TriangleBaseTextBox.Visibility = Visibility.Hidden;
-            //TriangleHeightTextBox.Visibility = Visibility.Hidden;
-            //CircleRadiusTextBox.Visibility = Visibility.Hidden;
+        {            
+            InitializeComponent();           
         }
 
         public NewFigure(ObservableCollection<FigureBase> figureList)
         {
-            InitializeComponent();
+            InitializeComponent();           
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            RectangleCheck.IsChecked = true;
-            TriangleBaseTextBox.Visibility = Visibility.Hidden;
-            TriangleHeightTextBox.Visibility = Visibility.Hidden;
-            CircleRadiusTextBox.Visibility = Visibility.Hidden;            
-            this.figureList = figureList;              
+            RectangleCheck.IsChecked = true;                      
+            this.figureList = figureList;
+            dataGridWithParameters.ColumnWidth = (dataGridWithParameters.Width / 2) - 4;  
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,14 +41,25 @@ namespace View
             TriangleCheck.IsChecked = true;
         }
         private void TriangleCheck_Checked(object sender, RoutedEventArgs e)
-        {
-            HideAll();
+        {            
             if (TriangleCheck.IsChecked == true)
             {
-                TriangleBaseTextBox.Visibility = Visibility.Visible;
-                TriangleHeightTextBox.Visibility = Visibility.Visible;
+                var dt = new DataTable();
                 RectangleCheck.IsChecked = false;
                 CircleCheck.IsChecked = false;
+                PropertyInfo[] myPropertyInfo;
+                Type myType = typeof(Triangle);
+                myPropertyInfo = myType.GetProperties();
+                dt.Columns.Add("Parameter");
+                dt.Columns.Add("Value");                
+                foreach (var property in myPropertyInfo)
+                {
+                    if (property.CanWrite)
+                    {
+                        dt.Rows.Add(property.Name);
+                    }
+                }
+                dataGridWithParameters.ItemsSource = dt.AsDataView();                
             }
         }
         private void CircleCheck_Click(object sender, RoutedEventArgs e)
@@ -63,12 +68,26 @@ namespace View
         }
         private void CircleleCheck_Checked(object sender, RoutedEventArgs e)
         {
-            HideAll();
+            var dt = new DataTable();
             if (CircleCheck.IsChecked == true)
-            {
-                CircleRadiusTextBox.Visibility = Visibility.Visible;
+            {                
+                dataGridWithParameters.Columns.Clear();
+                dt.Columns.Clear();                
                 RectangleCheck.IsChecked = false;
                 TriangleCheck.IsChecked = false;
+                PropertyInfo[] myPropertyInfo;
+                Type myType = typeof(Circle);
+                myPropertyInfo = myType.GetProperties();
+                dt.Columns.Add("Parameter");
+                dt.Columns.Add("Value");                
+                foreach (var property in myPropertyInfo)
+                {
+                    if (property.CanWrite)
+                    {
+                        dt.Rows.Add(property.Name);
+                    }
+                }
+                dataGridWithParameters.ItemsSource = dt.AsDataView();
             }
         }
         private void RectangleCheck_Click(object sender, RoutedEventArgs e)
@@ -77,54 +96,66 @@ namespace View
         }
         private void RectangleCheck_Checked(object sender, RoutedEventArgs e)
         {
-            dataGridWithParameters.Columns.Clear();
-            HideAll();
+            var dt = new DataTable(); 
+           
             if (RectangleCheck.IsChecked == true)
-            {
-                RectangleLengthTextBox.Visibility = Visibility.Visible;
-                RectangleWidthTextBox.Visibility = Visibility.Visible;
+            {                 
                 TriangleCheck.IsChecked = false;
                 CircleCheck.IsChecked = false;
                 PropertyInfo[] myPropertyInfo;
                 Type myType = typeof(Rectangle);
                 myPropertyInfo = myType.GetProperties();
-            }           
-
+                dt.Columns.Add("Parameter");
+                dt.Columns.Add("Value");                   
+                foreach (var property in myPropertyInfo)
+                {
+                    if (property.CanWrite)
+                    {                       
+                        dt.Rows.Add(property.Name);                        
+                    }
+                }
+                dataGridWithParameters.ItemsSource = dt.AsDataView();            
+            }
         }
-        private void HideAll()
-        {
-            RectangleLengthTextBox.Visibility = Visibility.Hidden;
-            RectangleWidthTextBox.Visibility = Visibility.Hidden;
-            TriangleBaseTextBox.Visibility = Visibility.Hidden;
-            TriangleHeightTextBox.Visibility = Visibility.Hidden;
-            CircleRadiusTextBox.Visibility = Visibility.Hidden;
-        }
+       
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            List<double> arr = new List<double>();
             FigureBase figure=new Rectangle();
             try
             {
                 if (RectangleCheck.IsChecked == true)
                 {
-                    figure = new Rectangle(
-                   Convert.ToDouble(RectangleWidthTextBox.Text),
-                   Convert.ToDouble(RectangleLengthTextBox.Text)
-                   );                                      
-                    labelCreatedFigure.Content = LabelContent(figure.GetType().Name);                    
+                    for (int i = 0; i < dataGridWithParameters.Items.Count; i++)
+                    {
+                        var ci = new DataGridCellInfo(dataGridWithParameters.Items[i], dataGridWithParameters.Columns[1]);
+                        var content = ci.Column.GetCellContent(ci.Item) as TextBlock;
+                        arr.Add(Convert.ToDouble(content.Text));
+                    }
+
+                    figure = new Rectangle(arr);
+                    labelCreatedFigure.Content = LabelContent(figure.GetType().Name);
                 }
                 else if (CircleCheck.IsChecked == true)
-                {
-                    figure = new Circle(
-                        Convert.ToDouble(CircleRadiusTextBox.Text)
-                        );                   
-                    labelCreatedFigure.Content = LabelContent(figure.GetType().Name);                    
+                {                 
+                    for (int i = 0; i < dataGridWithParameters.Items.Count; i++)
+                    {                       
+                        var ci = new DataGridCellInfo(dataGridWithParameters.Items[i], dataGridWithParameters.Columns[1]);                      
+                        var content = ci.Column.GetCellContent(ci.Item) as TextBlock;
+                        arr.Add(Convert.ToDouble(content.Text));
+                    }
+                    figure = new Circle(arr);
+                    labelCreatedFigure.Content = LabelContent(figure.GetType().Name);
                 }
                 else if (TriangleCheck.IsChecked == true)
                 {
-                    figure = new Triangle(
-                         Convert.ToDouble(TriangleBaseTextBox.Text),
-                         Convert.ToDouble(TriangleHeightTextBox.Text)
-                         );                                      
+                    for (int i = 0; i < dataGridWithParameters.Items.Count; i++)
+                    {
+                        var ci = new DataGridCellInfo(dataGridWithParameters.Items[i], dataGridWithParameters.Columns[1]);
+                        var content = ci.Column.GetCellContent(ci.Item) as TextBlock;
+                        arr.Add(Convert.ToDouble(content.Text));
+                    }
+                    figure = new Triangle(arr);
                     labelCreatedFigure.Content = LabelContent(figure.GetType().Name);                    
                 }
                 figureList.Add(figure);                

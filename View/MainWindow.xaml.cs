@@ -5,7 +5,6 @@ using System.Windows.Controls;
 using Geometrical_figures;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Collections.Specialized;
 
 namespace View
@@ -15,8 +14,7 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {           
-        public ObservableCollection<FigureBase> figureList = new ObservableCollection<FigureBase>();
-
+        private ObservableCollection<FigureBase> figureList = new ObservableCollection<FigureBase>();
         System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
         System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(ObservableCollection<FigureBase>));
 
@@ -30,6 +28,7 @@ namespace View
         public MainWindow()
         {            
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             figureList.CollectionChanged += Users_CollectionChanged;
 #if rootAccess
             randomButton.Visibility = Visibility.Visible;
@@ -37,38 +36,32 @@ namespace View
             randomButton.Visibility=Visibility.Hidden;
 #endif
         }
-        /// <summary>
-        /// Кнопка вызова окна для созданию новой фигуры
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+        private void AddFigureButton(object sender, RoutedEventArgs e)
         {
             var newFigure = new NewFigure(figureList)
             {
                 Owner = this
             };
-            newFigure.Show();
+            newFigure.Show(); 
         }
-        /// <summary>
-        /// Кнопка удаления фигуры из списка
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        
+        private void RemoveFigureButton(object sender, RoutedEventArgs e)
         {
-            if (figureListBox.Items.Count > 0)
+            try
             {
-                figureList.RemoveAt(figureListBox.Items.IndexOf(figureListBox.SelectedItem));
+                if (figureListBox.Items.Count > 0)
+                {
+                    figureList.RemoveAt(figureListBox.Items.IndexOf(figureListBox.SelectedItem));
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Выберите фигуру в списке");
             }
         }
-        /// <summary>
-        /// Кнопка вызова формы для поиска фигуры в списке
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-		/// //TODO: Нарушение инкапсуляции
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        
+        private void SearchFigureButton(object sender, RoutedEventArgs e)
         {
             var searchWindow = new SearchWindow(figureList)
             {
@@ -76,50 +69,47 @@ namespace View
             };
             searchWindow.Show();
         }
-        /// <summary>
-        /// Изменение в составе элементов с списке фигур
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        
         private void FigureListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             figureDataGrid.ItemsSource = null;
             figureDataGrid.Items.Clear();
             figureDataGrid.ItemsSource = figureListBox.SelectedItems;
-        }     
-        
+        }
+
         private void FigureDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void ExitButton(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }      
+        }           
         
-        private void Button_Click_6(object sender, RoutedEventArgs e)
+        private void AddRandomFigureButton(object sender, RoutedEventArgs e)
         {
 #if rootAcces           
 #else
             FigureBase figure;
             Random rnd = new Random();
-
+            List<double> rand = new List<double>();
             switch (rnd.Next(1, 4))
-            {
+            {                
                 case 1:
-                    figure = new Rectangle(rnd.Next(1, 99), rnd.Next(1, 99));
+                    rand.Add(rnd.Next(1, 99));
+                    rand.Add(rnd.Next(1, 99));
+                    figure = new Rectangle(rand);
                     figureList.Add(figure);
                     break;
                 case 2:
-                    figure = new Triangle(rnd.Next(1, 99), rnd.Next(1, 99));
+                    rand.Add(rnd.Next(1, 99));
+                    rand.Add(rnd.Next(1, 99));
+                    figure = new Triangle(rand);
                     figureList.Add(figure);
                     break;
                 case 3:
-                    figure = new Circle(rnd.Next(1, 99));
+                    rand.Add(rnd.Next(1, 99));                    
+                    figure = new Circle(rand);
                     figureList.Add(figure);
                     break;
             }          
@@ -158,9 +148,10 @@ namespace View
         }
         private void Contacts_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Автор: Петров А.А. \nE-mail: artem.petrov11@mail.ru");
+            Contacts contacts = new Contacts();
+            contacts.Show();    
         }
-        private void OpenMenuItemClick(object sender, RoutedEventArgs e)
+        private void OpenFileMenuItemClick(object sender, RoutedEventArgs e)
         {
             var openFile = new Microsoft.Win32.OpenFileDialog
             {
@@ -172,15 +163,13 @@ namespace View
                 using (var file = System.IO.File.OpenRead(openFile.FileName))
                 {
                     figureList = (ObservableCollection<FigureBase>)reader.Deserialize(file);
-                    FigureListUpdate();
-                    //figureListBox.Items.Add((ObservableCollection<FigureBase>)reader.Deserialize(file));
-                    file.Close();
-                    
-                    MessageBox.Show($"Файл {openFile.FileName} успешно сохранен.");
+                    FigureListUpdate();                  
+                    file.Close();                    
+                    MessageBox.Show($"Файл {openFile.FileName} успешно открыт.");
                 }
             }
         }
-        private void SaveMenuitemClick(object sender, RoutedEventArgs e)
+        private void SaveFileMenuitemClick(object sender, RoutedEventArgs e)
         {           
             var saveFile = new Microsoft.Win32.SaveFileDialog
             {
@@ -200,6 +189,16 @@ namespace View
         private void FigureListUpdate()
         {
             figureListBox.ItemsSource = figureList;
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

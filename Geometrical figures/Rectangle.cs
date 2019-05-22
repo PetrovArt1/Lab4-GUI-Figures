@@ -1,4 +1,5 @@
-﻿/// <summary>
+﻿using System.Collections.Generic;
+/// <summary>
 /// Геометрические фигуры
 /// </summary>
 namespace Geometrical_figures
@@ -13,7 +14,6 @@ namespace Geometrical_figures
             get
             {
                 return typeof(Rectangle).Name;
-
             }
         }
         /// <summary>
@@ -73,10 +73,10 @@ namespace Geometrical_figures
         /// </summary>
         /// <param name="width">Ширина</param>
         /// <param name="length">Длина</param>
-        public Rectangle(double width, double length)
-        {
-            Length = length;
-            Width = width;
+        public Rectangle(List<double> param)
+        {            
+            Width = param[0];
+            Length = param[1];
         }
 
         /// <summary>

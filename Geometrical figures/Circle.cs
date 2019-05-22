@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 /// <summary>
 /// Геометрические фигуры
 /// </summary>
@@ -53,9 +54,9 @@ namespace Geometrical_figures
         /// Конструктор
         /// </summary>
         /// <param name="radius">Радиус</param>
-        public Circle(double radius)
+        public Circle(List<double> param)
         {
-            Radius = radius;
+            Radius = param[0];
         }
 
         /// <summary>

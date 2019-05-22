@@ -86,3 +86,5 @@ C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\View\obj\Debug\
 C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\View\obj\Debug\View.csproj.CopyComplete
 C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\View\obj\Debug\View.exe
 C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\View\obj\Debug\View.pdb
+C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\View\obj\Debug\Contacts.g.cs
+C:\Users\Петров Артем\Desktop\GitHub\Lab4-GUI-Figures\View\obj\Debug\Contacts.baml

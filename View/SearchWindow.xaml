@@ -5,63 +5,173 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"     
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="Seacrh figure" Height="330" Width="466.5" Background="#E6E6FA" >
+        Title="Seacrh figure" 
+        Height="330" 
+        Width="466.5" 
+        Background="#E6E6FA" >
     <Grid>
-        <Border  BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="49" Margin="10,33,0,0" VerticalAlignment="Top" Width="296"/>
-        <Border  BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="49" Margin="10,87,0,0" VerticalAlignment="Top" Width="296"/>
-
-
-        <Border  BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="69" Margin="10,141,0,0" VerticalAlignment="Top" Width="296"/>
-
-
-        <DataGrid BorderBrush="White" Background="DarkGray" x:Name="searchDataGrid" HorizontalAlignment="Left" Height="57" Margin="10,226,0,0" VerticalAlignment="Top" Width="296" SelectionChanged="SearchDataGrid_SelectionChanged" RowHeight="50" ColumnWidth="*" CanUserAddRows="False"/>
-        <ComboBox x:Name="figureComboBox" HorizontalAlignment="Left" Margin="176,46,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+        <Border  BorderBrush="Black" 
+                 BorderThickness="1" 
+                 HorizontalAlignment="Left" 
+                 Height="49" 
+                 Margin="10,33,0,0" 
+                 VerticalAlignment="Top"
+                 Width="296"/>
+        <Border  BorderBrush="Black" 
+                 BorderThickness="1" 
+                 HorizontalAlignment="Left"
+                 Height="49" 
+                 Margin="10,87,0,0" 
+                 VerticalAlignment="Top" 
+                 Width="296"/>
+        <Border  BorderBrush="Black" 
+                 BorderThickness="1" 
+                 HorizontalAlignment="Left" 
+                 Height="69" 
+                 Margin="10,141,0,0" 
+                 VerticalAlignment="Top"
+                 Width="296"/>
+        
+        <DataGrid BorderBrush="White" 
+                  Background="DarkGray" 
+                  x:Name="searchDataGrid" 
+                  HorizontalAlignment="Left" 
+                  Height="57" 
+                  Margin="10,226,0,0"
+                  VerticalAlignment="Top" 
+                  Width="296" 
+                  SelectionChanged="SearchDataGrid_SelectionChanged"
+                  RowHeight="50" 
+                  ColumnWidth="*" 
+                  CanUserAddRows="False"/>
+        <ComboBox x:Name="figureComboBox" 
+                  HorizontalAlignment="Left" 
+                  Margin="176,46,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="120" 
+                  SelectionChanged="ComboBox_SelectionChanged">
             <TextBlock><Run Text="Rectangle"/></TextBlock>
             <TextBlock><Run Text="Triangle"/></TextBlock>
             <TextBlock><Run Text="Circle"/></TextBlock>
         </ComboBox>
-        <CheckBox x:Name="allFigure" Content="Найти все фигуры типа:" HorizontalAlignment="Left" Margin="16,50,0,0" VerticalAlignment="Top" Checked="AllFigure_Checked" Click="AllFigure_Click"/>
-        <ListBox  x:Name="searchListBox" HorizontalAlignment="Left" Height="177" Margin="323,33,0,0" VerticalAlignment="Top" Width="117" SelectionChanged="SearchListBox_SelectionChanged">
+        <CheckBox x:Name="allFigure" 
+                  Content="Найти все фигуры типа:" 
+                  HorizontalAlignment="Left" 
+                  Margin="16,50,0,0" 
+                  VerticalAlignment="Top" 
+                  Checked="AllFigure_Checked" 
+                  Click="AllFigure_Click"/>
+        <ListBox  x:Name="searchListBox" 
+                  HorizontalAlignment="Left" 
+                  Height="177" 
+                  Margin="323,33,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="117" 
+                  SelectionChanged="SearchListBox_SelectionChanged">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center"/>
+                    <StackPanel Orientation="Vertical" 
+                                HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <TextBlock Text="{Binding Name}" Grid.Column="0" Grid.Row="0"/>
+                        <TextBlock Text="{Binding Name}" 
+                                   Grid.Column="0" 
+                                   Grid.Row="0"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <CheckBox x:Name="allFigureWithParam" Content="Найти все фигуры с параметром = " HorizontalAlignment="Left" Margin="16,104,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked_1" Click="AllFigureWithParam_Click"/>
-        <TextBox x:Name="figureParamTextBox" HorizontalAlignment="Left" Height="22" Margin="236,102,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <CheckBox x:Name="allFigureWithParam" 
+                  Content="Найти все фигуры с параметром = " 
+                  HorizontalAlignment="Left" 
+                  Margin="16,104,0,0" 
+                  VerticalAlignment="Top" 
+                  Checked="CheckBox_Checked_1" 
+                  Click="AllFigureWithParam_Click"/>
+        <TextBox x:Name="figureParamTextBox" 
+                 HorizontalAlignment="Left" 
+                 Height="22" 
+                 Margin="236,102,0,0" 
+                 Text="" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="60"/>
 
-        <ComboBox x:Name="figureTypeComboBox" HorizontalAlignment="Left" Margin="176,151,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="figureTypeComboBox" 
+                  HorizontalAlignment="Left"
+                  Margin="176,151,0,0" 
+                  VerticalAlignment="Top"
+                  Width="120">
             <TextBlock><Run Text="Rectangle"/></TextBlock>
             <TextBlock><Run Text="Triangle"/></TextBlock>
             <TextBlock><Run Text="Circle"/></TextBlock>
         </ComboBox>
-        <CheckBox x:Name="figuresWithParam" Content="Найти все фигуры типа:" HorizontalAlignment="Left" Margin="16,153,0,0" VerticalAlignment="Top" Checked="FiguresWithParam_Checked" Click="FiguresWithParam_Click"/>
-        <Label Content="с параметром =" HorizontalAlignment="Left" Margin="67,175,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="figureParam2TextBox" HorizontalAlignment="Left" Height="24" Margin="176,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
-        <Button  Background="#0030ff" Foreground="White" HorizontalAlignment="Left" Margin="323,226,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click">
-            <TextBlock Foreground="White" Text="Search" FontSize="16" FontWeight="Bold">
+        <CheckBox x:Name="figuresWithParam" 
+                  Content="Найти все фигуры типа:" 
+                  HorizontalAlignment="Left" 
+                  Margin="16,153,0,0" 
+                  VerticalAlignment="Top" 
+                  Checked="FiguresWithParam_Checked" 
+                  Click="FiguresWithParam_Click"/>
+        <Label Content="с параметром =" 
+               HorizontalAlignment="Left" 
+               Margin="67,175,0,0" 
+               VerticalAlignment="Top"/>
+        <TextBox x:Name="figureParam2TextBox" 
+                 HorizontalAlignment="Left" 
+                 Height="24" 
+                 Margin="176,177,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="60"/>
+        <Button  Background="#0030ff" 
+                 Foreground="White" 
+                 HorizontalAlignment="Left" 
+                 Margin="323,226,0,0" 
+                 VerticalAlignment="Top" 
+                 Width="117" 
+                 Click="Button_Click">
+            <TextBlock Foreground="White" 
+                       Text="Search" 
+                       FontSize="16" 
+                       FontWeight="Bold">
                 <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="0.5" BlurRadius="5" Color="Black" />
+                    <DropShadowEffect ShadowDepth="0.5"
+                                      BlurRadius="5" 
+                                      Color="Black" />
                 </TextBlock.Effect>
             </TextBlock>
         </Button>
 
-        <Button  Background="#a0a020" Foreground="White" HorizontalAlignment="Left" Margin="323,258,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click_1">
-            <TextBlock Foreground="White" Text="Cancel" FontSize="16" FontWeight="Bold">
+        <Button  Background="#a0a020" 
+                 Foreground="White" 
+                 HorizontalAlignment="Left" 
+                 Margin="323,258,0,0" 
+                 VerticalAlignment="Top" 
+                 Width="117" 
+                 Click="Button_Click_1">
+            <TextBlock Foreground="White" 
+                       Text="Cancel" 
+                       FontSize="16" 
+                       FontWeight="Bold">
                 <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="0.5" BlurRadius="5" Color="Black" />
+                    <DropShadowEffect ShadowDepth="0.5" 
+                                      BlurRadius="5" 
+                                      Color="Black" />
                 </TextBlock.Effect>
             </TextBlock>
         </Button>
-        <Label Name="foundFigures" Content="Configure search options, please." HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.355,0.346" Width="430"/>
+        <Label Name="foundFigures" 
+               Content="Configure search options, please." 
+               HorizontalAlignment="Left" 
+               Margin="10,7,0,0" 
+               VerticalAlignment="Top" 
+               RenderTransformOrigin="-0.355,0.346"
+               Width="430"/>
 
     </Grid>
 </Window>

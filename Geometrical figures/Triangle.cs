@@ -1,4 +1,5 @@
-﻿/// <summary>
+﻿using System.Collections.Generic;
+/// <summary>
 /// Геометрические фигуры
 /// </summary>
 namespace Geometrical_figures
@@ -72,10 +73,10 @@ namespace Geometrical_figures
         /// </summary>
         /// <param name="triangleBase">Основание треугольника</param>
         /// <param name="heigth">Высота</param>
-        public Triangle(double triangleBase, double heigth)
+        public Triangle(List<double> parametres)
         {
-            Heigth = heigth;
-            TriangleBase = triangleBase;
+            TriangleBase = parametres[0];
+            Heigth = parametres[1];
         }
 
         /// <summary>
